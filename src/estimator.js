@@ -1,27 +1,27 @@
 
 const getCurrentlyInfected = (reportedCases, factor) => {
-    return reportedCases * factor
+    return reportedCases * factor;
 }
 
 export const convertTimeToDays = (dateType, dateValue) => {
     switch(dateType) {
-        case "days":
+        case 'days':
             return dateValue;
-        case "weeks":
+        case 'weeks':
             return dateValue * 7;
-        case "months":
-            return dateValue * 30
+        case 'months':
+            return dateValue * 30;
         default:
             return 0;
     }
 }
 
 const covid19ImpactEstimator = (data) => {
-    const impactCurrentlyInfected = getCurrentlyInfected(data.reportedCases, 10)
-    const severeImpactCurrentlyInfected = getCurrentlyInfected(data.reportedCases, 50)
-    const days = convertTimeToDays(data.periodType, data.timeToElapse)
-    const currentlyInfectedInTimeBase =  Math.pow(2, Math.floor(days/3))
-    console.log(severeImpactCurrentlyInfected)
+    const impactCurrentlyInfected = getCurrentlyInfected(data.reportedCases, 10);
+    const severeImpactCurrentlyInfected = getCurrentlyInfected(data.reportedCases, 50);
+    const days = convertTimeToDays(data.periodType, data.timeToElapse);
+    const currentlyInfectedInTimeBase =  Math.pow(2, Math.floor(days/3));
+    
     return {
     data: {},
     impact: {
